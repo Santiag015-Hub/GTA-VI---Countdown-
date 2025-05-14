@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuenta regresiva GTA VI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/H0HuSmM.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            max-width: 700px;
+            margin: 50px auto;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .phrase {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .countdown {
+                font-size: 1.5em;
+            }
+
+            iframe {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cuenta Regresiva para GTA VI</h1>
+        <div class="countdown" id="countdown">Cargando...</div>
+        <div class="phrase">“La paciencia también es parte del crimen.”</div>
+        <iframe src="https://www.youtube.com/embed/QdBZY2fkU-0" allowfullscreen></iframe>
+        <div class="social-buttons">
+            <a href="https://twitter.com/intent/tweet?text=¡Ya quiero jugar GTA VI! https://rockstargames.com/" target="_blank">X</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://rockstargames.com/" target="_blank">Facebook</a>
+            <a href="https://wa.me/?text=¡Ya quiero jugar GTA VI! https://rockstargames.com/" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+    <script>
+        const countdown = document.getElementById("countdown");
+        const releaseDate = new Date("May 26, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                countdown.innerHTML = "¡GTA VI YA ESTÁ DISPONIBLE!";
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
